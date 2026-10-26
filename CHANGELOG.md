@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/inertia-vuetify/modal/compare/v3.0.1...v3.0.2) (2026-10-26)
+
+
+### Documentation
+
+* **example:** make example a static demo site ([e4b3346](https://github.com/inertia-vuetify/modal/commit/e4b334689f0818f37982c46143063f487f3378f0))
+
 ## [3.0.1](https://github.com/inertia-vuetify/modal/compare/v3.0.0...v3.0.1) (2026-10-23)
 
 
