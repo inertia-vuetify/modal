@@ -2,6 +2,8 @@
 
 Open any Inertia.js route in a Vuetify modal, slideover, or bottom sheet without changing your routes or controllers. It works with the [`inertiaui/modal`](https://inertiaui.com/inertia-modal/docs) Laravel package and has the same API as its Vue frontend, [`@inertiaui/modal-vue`](https://github.com/inertiaui/modal), so switching is a matter of changing imports.
 
+Try it in the [live demo](https://modal-ary.pages.dev).
+
 ## Features
 
 - ✅ **Drop-in replacement** - Same API as `@inertiaui/modal-vue`, no Tailwind needed
@@ -348,7 +350,7 @@ bun run lint        # oxlint
 bun run format      # oxfmt
 bun run typecheck   # vue-tsc
 bun run build       # Library and type declarations in dist/
-bun run dev         # Local-modal playground in example/ at http://localhost:3000
+bun run dev         # Demo site in example/ at http://localhost:3000, with a backend faked in the browser
 ```
 
 `demo-app/` is a Laravel 13 app for testing routed modals against the package source, with Playwright end-to-end tests; see [AGENTS.md](AGENTS.md) for its commands.

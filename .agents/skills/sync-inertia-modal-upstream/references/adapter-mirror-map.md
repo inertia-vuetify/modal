@@ -62,4 +62,6 @@ contracts these files keep are the guardrails in `AGENTS.md`.
   package.
 - `demo-app/tests/Feature/ModalRoutesTest.php` - demo routes.
 - `demo-app/resources/js/app.ts`, `ssr.ts` - app and SSR setup.
-- `example/App.vue`, `example/components/*.vue` - local modals.
+- `example/server.ts` - the static demo's in-browser copy of the Laravel
+  package's wire protocol; `example/pages/**`, `example/components/*.vue` -
+  its routed and local modals.

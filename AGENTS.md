@@ -19,7 +19,8 @@ Laravel/Inertia demo app for integration testing and manual verification.
   Playwright end-to-end tests in `tests/e2e/`.
 - `docs/` - User-facing package documentation, adapted from InertiaUI Modal's
   docs.
-- `example/` - Small standalone Vite/Vue/Vuetify playground for local modals.
+- `example/` - Static demo site, deployed to Cloudflare Pages: an Inertia app
+  whose backend `example/server.ts` fakes in the browser.
 - `src/` - Published TypeScript package source and public exports.
 - `tests/unit/` - Vitest tests that run in Node.
 - `tests/browser/` - Vitest browser-mode tests that run in headless Chromium.
@@ -148,6 +149,12 @@ npm run test:e2e
 - Root formatting and linting use oxfmt (`.oxfmtrc.json`: 4 spaces, no
   semicolons, single quotes) and oxlint (`.oxlintrc.json`). YAML and
   `package.json` keep their 2-space formatting and are excluded from oxfmt.
+- oxfmt drops the `;` between statements of a multi-line inline template
+  handler, which breaks the Vue template parser; call a script function
+  instead.
+- Vuetify 4 uses Material 3 typography classes (`text-headline-small`,
+  `text-title-medium`, ...); the Vuetify 3 `text-h*`/`text-subtitle-*` classes
+  no longer exist.
 - Use PascalCase for Vue component filenames and camelCase for TS identifiers.
 - Preserve consumer-facing `im-` CSS classes as public customization hooks.
 - Demo TypeScript is strict in `demo-app/tsconfig.json`. Demo ESLint uses Vue
@@ -264,8 +271,9 @@ dependencies itself.
 - Demo Laravel tests run through `composer run test`; they cover the demo's
   modal routes, not package behavior.
 - For visual changes, check modal, slideover, bottom sheet, card layout, and
-  phone fullscreen in light and dark themes. Use `example/` for local modals
-  and `demo-app/` for routed, navigate-mode, and SSR behavior.
+  phone fullscreen in light and dark themes. `example/` covers local and
+  routed modals without a backend; use `demo-app/` to check behavior against
+  the real Laravel package and SSR.
 - For packaging changes, test both published root exports and the demo alias to
   `src/index.ts`.
 
@@ -299,7 +307,8 @@ dependencies itself.
   package: request headers (`X-InertiaUI-Modal`, `X-InertiaUI-Modal-Base-Url`,
   `X-Inertia*`), the `_inertiaui_modal` page prop, and the modal response
   shape (`component`, `props`, `url`, `baseUrl`, `meta.deferredProps`). Check
-  the package's PHP source before changing any of them.
+  the package's PHP source before changing any of them. `example/server.ts`
+  imitates that protocol for the static demo; update it along with them.
 - Keep the public API compatible with `@inertiaui/modal-vue` (export names,
   props, slot props, events, exposed methods) unless a breaking change is
   decided. Port upstream changes with the `sync-inertia-modal-upstream` skill;
