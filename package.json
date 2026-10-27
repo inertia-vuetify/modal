@@ -1,6 +1,6 @@
 {
   "name": "@inertia-vuetify/modal",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Vuetify modals and slideovers for Inertia.js, compatible with the inertiaui/modal Laravel package",
   "type": "module",
   "repository": {
